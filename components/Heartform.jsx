@@ -18,7 +18,7 @@ function Heartform({ heartdata, setHeartdata }) {
             body: JSON.stringify(heartdata.data)
         })
         const data = await response.json()
-        console.log(data)
+        //console.log(data)
         if (data === 'The person has Heart Disease') {
             return router.push('/heartnok')
         }
@@ -45,7 +45,7 @@ function Heartform({ heartdata, setHeartdata }) {
         }
         if (count === 1) setShow(true)
 
-        console.log(count)
+        //console.log(count)
     }
 
     return (

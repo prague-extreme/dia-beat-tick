@@ -4,9 +4,9 @@ import React, { useEffect, useState } from 'react';
 function Diabetesform({ diabetesdata, setDiabetesdata }) {
     const router = useRouter();
 
-    useEffect(() => {
-        console.log(diabetesdata)
-    }, [diabetesdata]);
+    // useEffect(() => {
+    //     console.log(diabetesdata)
+    // }, [diabetesdata]);
 
     const predict = async () => {
         const response = await fetch('https://diabetes-nhpg.onrender.com/diabetes_prediction', {
@@ -44,7 +44,7 @@ function Diabetesform({ diabetesdata, setDiabetesdata }) {
         }
         if (count === 1) setShow(true)
 
-        console.log(count)
+        //console.log(count)
     }
 
     return (

@@ -1,11 +1,7 @@
-import { useRouter } from 'next/router'
 import Link from 'next/link';
 
 function Right() {
-    const router = useRouter();
-    const route = () => {
-        return router.push('/diabetes')
-    }
+    
     return (
         <div className="flex flex-col h-full w-1/2 bg-blue-800 p-10 justify-between rounded-lg hover:bg-blue-900 transition shadow-2xl">
             <a href="https://en.wikipedia.org/wiki/Diabetes" className="flex flex-col items-start gap-1 border p-3 rounded-md transition hover:bg-blue-500">
@@ -21,7 +17,7 @@ function Right() {
                 <div className='text-2xl'>
                     Let's check your Diabetic condition
                 </div>
-                <Link href="" onClick={route} className="flex rounded-md border-2 px-3 py-1 text-xl font-bold justify-center   transition hover:text-green-600 hover:border-green-600">
+                <Link href="/diabetes" className="flex rounded-md border-2 px-3 py-1 text-xl font-bold justify-center   transition hover:text-green-600 hover:border-green-600">
                     Predict Diabetes
                 </Link>
             </div>

@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 import React, { useEffect } from 'react'
+import Head from 'next/head';
 
 export default function App({ Component, pageProps }) {
   //this is done to start the api server 
@@ -10,6 +11,10 @@ export default function App({ Component, pageProps }) {
 
   return (
     <div className='h-screen w-full'>
+      <Head>
+        <title>Health App</title>
+        <link rel="icon" href="/icon.png" />
+      </Head>
       <Component {...pageProps} />
     </div>
   )
