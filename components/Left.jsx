@@ -4,7 +4,7 @@ import Link from 'next/link';
 function Left() {
     const router = useRouter();
     const route = () => {
-        router.push('/heart')
+        return router.push('/heart')
     }
     return (
         <div className="flex flex-col h-full w-1/2 bg-blue-800 p-10 justify-between rounded-lg hover:bg-blue-900 transition shadow-2xl">
