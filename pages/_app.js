@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     fetch('https://heart-i5bb.onrender.com/heart_prediction')
     fetch('https://diabetes-nhpg.onrender.com/diabetes_prediction')
-  },);
+  },[]);
 
   return (
     <div className='h-screen w-full'>
