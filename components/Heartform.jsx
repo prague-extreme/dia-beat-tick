@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link';
+import Loader from './Loader';
 
 function Heartform({ heartdata, setHeartdata }) {
     const router = useRouter();
     // useEffect(() => {
     //     console.log(heartdata)
     // }, [heartdata]);
-
+    const [loading,setLoading] = useState(false);
     const predict = async (e) => {
-        e.preventDefault()
+        //e.preventDefault()
+        setLoading(true)
         const response = await fetch('https://heart-i5bb.onrender.com/heart_prediction', {
             method: 'POST',
             headers: {
@@ -21,9 +23,11 @@ function Heartform({ heartdata, setHeartdata }) {
         //console.log(data)
         if (data === 'The person has Heart Disease') {
             return router.push('/heartnok')
+            setLoading(true)
         }
         else {
             return router.push('/heartok')
+            setLoading(true)
         }
         
     }
@@ -47,7 +51,7 @@ function Heartform({ heartdata, setHeartdata }) {
 
         //console.log(count)
     }
-
+    if (loading === true) return <Loader />
     return (
 
         <div className='flex justify-center my-10 '>
@@ -159,9 +163,9 @@ function Heartform({ heartdata, setHeartdata }) {
                         
                     </div>
                 </div>
-                {show ? <button onClick={predict} className="flex rounded-md border-2 px-3 py-1 text-xl font-bold justify-center   transition hover:text-green-600 hover:border-green-600">
+                {show ? <div onClick={predict} className="flex rounded-md border-2 px-3 py-1 text-xl font-bold justify-center   transition hover:text-green-600 hover:border-green-600">
                     Predict Heart Condition
-                </button> : <div className='text-red-600 font-bold '>
+                </div> : <div className='text-red-600 font-bold '>
                     Please fill all the details
                 </div>}
                 

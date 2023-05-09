@@ -8,7 +8,7 @@ function diabetesok() {
         <Navbar />
 
         <div className="flex justify-center">
-            <div className="mt-12 flex flex-col w-2/3 gap-8 p-5rounded-lg bg-blue-800 shadow-2xl">
+            <div className="mt-12 flex flex-col w-2/3 gap-8 p-5 rounded-lg bg-blue-800 shadow-2xl">
                 <div className="text-5xl text-green-500">
                     Oh Great!! Seems like you don't have Diabetes
                 </div>

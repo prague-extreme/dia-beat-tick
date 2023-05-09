@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react';
+import Loader from './Loader';
 
 function Diabetesform({ diabetesdata, setDiabetesdata }) {
     const router = useRouter();
@@ -7,8 +8,9 @@ function Diabetesform({ diabetesdata, setDiabetesdata }) {
     // useEffect(() => {
     //     console.log(diabetesdata)
     // }, [diabetesdata]);
-
+    const [loading,setLoading] = useState(false);
     const predict = async () => {
+        setLoading(true)
         const response = await fetch('https://diabetes-nhpg.onrender.com/diabetes_prediction', {
             method: 'POST',
             headers: {
@@ -17,12 +19,13 @@ function Diabetesform({ diabetesdata, setDiabetesdata }) {
             body: JSON.stringify(diabetesdata.data)
         })
         const data = await response.json()
-
         if (data === "The person is not Diabetic") {
             router.push('/diabetesok')
+            setLoading(false)
         }
         else {
             router.push('/diabetesnok')
+            setLoading(false)
         }
 
         //console.log(data)
@@ -46,7 +49,7 @@ function Diabetesform({ diabetesdata, setDiabetesdata }) {
 
         //console.log(count)
     }
-
+    if (loading === true) return <Loader /> 
     return (
         <div className='flex justify-center my-10'>
             <form className="w-4/6 flex flex-col justify-center items-center p-8 gap-10 rounded-lg bg-blue-800 shadow-2xl	" action="">
